@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="47.111.159.23" id="818add84-2b99-4acd-9338-def683a6a3e6" port="22" customName="华东1杭州可用区B" nameFormat="CUSTOM" username="root" useOpenSSHConfig="true">
+        <option name="customName" value="华东1杭州可用区B" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

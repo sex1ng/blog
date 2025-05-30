@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9d34ae5b-0186-4e6b-8211-7cfaac48e07d" name="wp" url="http://47.111.159.23">
+        <fileTransfer rootFolder="/usr/share/nginx/html/wordpress" accessType="SFTP" host="47.111.159.23" port="22" sshConfigId="818add84-2b99-4acd-9338-def683a6a3e6" sshConfig="华东1杭州可用区B">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseSudo="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
