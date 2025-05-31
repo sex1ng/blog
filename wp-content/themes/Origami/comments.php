@@ -23,7 +23,7 @@ if (
           <div class="response-title">
             <?php echo __('说点什么', 'origami'); ?>
           </div>
-          <div class="response-user">
+          <div class="response-user" style="display: none">
             <?php if ($logged) : ?>
               <?php echo __('您是', 'origami'); ?>
               <a href="<?php echo $current_user_url; ?>">
@@ -32,7 +32,7 @@ if (
             <?php endif; ?>
             <?php echo wp_loginout(); ?>
           </div>
-          <button id="close-response" class="btn">
+          <button id="close-response" class="btn" style="display: none">
             <?php echo __('放弃治疗', 'origami'); ?>
           </button>
         </div>
@@ -56,10 +56,20 @@ if (
           <div class="OwO"></div>
         </div>
         <?php if (get_option("origami_markdown_comment", "true") == "true") : ?>
-          <div class="response-md">
-            <i class="fa fa-book"></i>
-            <?php echo __('支持Markdown语法', 'origami'); ?>
-          </div>
+        <div class="response-md" title="支持Markdown语法">
+          <!--<i class="fa fa-book"></i>-->
+          <!--<?php //echo __( '支持Markdown语法', 'origami' ); ?>-->
+          <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="external nofollow noopener noreferrer">
+            <svg width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <rect fill="none" id="canvas_background" height="22" width="34" y="-1" x="-1"></rect>
+              </g>
+              <g>
+                <path stroke="null" fill="#777" id="svg_1" d="m29.34192,0.25157l-26.72153,0c-1.2288,0 -2.24305,1.01425 -2.24305,2.24305l0,14.99916c0,1.2483 1.01425,2.26255 2.24305,2.26255l26.70202,0c1.2483,0 2.24305,-1.01425 2.24305,-2.24305l0,-15.01867c0.01951,-1.2288 -0.99474,-2.24305 -2.22354,-2.24305l0.00001,0zm-11.41029,15.60381l-3.90096,0l0,-5.85143l-2.92571,3.74491l-2.92571,-3.74491l0,5.85143l-3.90096,0l0,-11.70286l3.90096,0l2.92571,3.90096l2.92571,-3.90096l3.90096,0l0,11.70286zm5.83193,0.97524l-4.85669,-6.82667l2.92571,0l0,-5.85143l3.90096,0l0,5.85143l2.92571,0l-4.8957,6.82667l0,0z" fill-rule="evenodd"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
         <?php endif; ?>
         <div class="response-footer">
           <div class="response-input-item">
@@ -75,7 +85,7 @@ if (
               <input data-rule="required(请输入邮箱)|/^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/您输入的邮箱有误|disinput|focus" name="email" <?php echo $logged ? 'style="display:none"' : ''; ?> id="response-email" class="form-input" type="text" value="<?php echo $comment_author_email; ?>" placeholder="<?php echo __('邮箱', 'origami'); ?> *">
             </div>
             <div class="form-group has-icon-right">
-              <input id="response-submit" class="form-input" type="submit" value="<?php echo __('发表评论', 'origami'); ?>" data-postid="<?php echo $post->ID; ?>" data-commentid="0" data-lv="1">
+              <input id="response-submit" class="form-input" type="submit" value="<?php echo __('发表阔论', 'origami'); ?>" data-postid="<?php echo $post->ID; ?>" data-commentid="0" data-lv="1">
               <i class="loading form-icon response-loading"></i>
             </div>
           </div>
