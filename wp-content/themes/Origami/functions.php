@@ -611,34 +611,35 @@ add_action('init', 'origami_inspiration_init');
 // 文末版权声明
 function origami_content_copyright($content)
 {
-  $content .= '<div class="clearfix"></div>';
-  if (is_single() || is_feed()) {
-    $select_ccl = get_option('origami_ccl', 'by-nc-sa');
-    if ($select_ccl === 'none') {
-      return $content;
+    $content .= '<div class="clearfix"></div>';
+    if (is_single() || is_feed()) {
+        $select_ccl = get_option('origami_ccl', 'by-nc-sa');
+        if ($select_ccl === 'none') {
+            return $content;
+        }
+        $ccl = [
+            'by' => '署名标示(BY)',
+            'by-sa' => '署名标示(BY)-相同方式共享(SA)',
+            'by-nc' => '署名标示(BY)-非商业性使用(NC)',
+            'by-nc-sa' => '署名标示(BY)-非商业性使用(NC)-相同方式共享(SA)',
+            'by-nd' => '署名标示(BY)-禁止演绎(ND)',
+            'by-nc-nd' => '署名标示(BY)-非商业性使用(NC)-禁止演绎(ND)',
+        ];
+//		$content .= '<div id="content-copyright">
+//      <span style="font-weight:bold;text-shadow:0 1px 0 #ddd;font-size: 12px;">声明:</span>
+//      <span style="font-size: 12px;">
+//        本文采用
+//        <a rel="nofollow" href="http://creativecommons.org/licenses/' . $select_ccl . '/4.0/" title="' . $ccl[ $select_ccl ] . '">' . strtoupper( $select_ccl ) . '</a>
+//        协议进行授权，如无注明均为原创，转载请注明转自
+//        <a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>
+//        <br>
+//        本文地址:
+//        <a rel="bookmark" title="' . get_the_title() . '" href="' . get_permalink() . '">' . get_the_title() . '</a>
+//      </span>
+//    </div>';
     }
-    $ccl = [
-      'by' => '署名标示(BY)',
-      'by-sa' => '署名标示(BY)-相同方式共享(SA)',
-      'by-nc' => '署名标示(BY)-非商业性使用(NC)',
-      'by-nc-sa' => '署名标示(BY)-非商业性使用(NC)-相同方式共享(SA)',
-      'by-nd' => '署名标示(BY)-禁止演绎(ND)',
-      'by-nc-nd' => '署名标示(BY)-非商业性使用(NC)-禁止演绎(ND)',
-    ];
-    $content .= '<div id="content-copyright">
-      <span style="font-weight:bold;text-shadow:0 1px 0 #ddd;font-size: 12px;">声明:</span>
-      <span style="font-size: 12px;">
-        本文采用
-        <a rel="nofollow" href="http://creativecommons.org/licenses/' . $select_ccl . '/4.0/" title="' . $ccl[$select_ccl] . '">' . strtoupper($select_ccl) . '</a>
-        协议进行授权，如无注明均为原创，转载请注明转自
-        <a href="' . home_url() . '">' . get_bloginfo('name') . '</a>
-        <br>
-        本文地址:
-        <a rel="bookmark" title="' . get_the_title() . '" href="' . get_permalink() . '">' . get_the_title() . '</a>
-      </span>
-    </div>';
-  }
-  return $content;
+
+    return $content;
 }
 add_filter('the_content', 'origami_content_copyright');
 
