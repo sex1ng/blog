@@ -28,6 +28,11 @@ Tags: black,cyan-blue,flat,responsive
   box-shadow: inset 0 0 10px rgba(87, 85, 217, 0.3);
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-SemiBold.otf");
+}
+
 * {
   scrollbar-color: rgba(87, 85, 217, 0.7) rgba(255, 255, 255, 0.7);
   scrollbar-width: thin;
@@ -35,10 +40,11 @@ Tags: black,cyan-blue,flat,responsive
 
 body {
   background-color: #f8f9fa;
-  font-family: "Source Serif Pro", "Noto Serif SC", -apple-system, "SF UI Text", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Play", "Source Serif Pro", "Noto Serif SC", -apple-system, "SF UI Text", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: 400;
   color: #757575;
   overflow: unset;
+  cursor: url(/wp-content/themes/Origami/cur/cur1.cur), default;
 }
 
 code[class*="language-"],
@@ -55,6 +61,10 @@ pre:not([class*="language-"]) {
 
 a {
   transition: color 0.3s;
+}
+
+a:hover {
+  cursor: url(/wp-content/themes/Origami/cur/cur2.cur), pointer;
 }
 
 a:visited {
@@ -882,7 +892,8 @@ body.menu-active .ori-footer {
 }
 
 .carousel-content h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
+  font-family: "Montserrat";
 }
 
 .carousel-content h2 {
@@ -1300,6 +1311,13 @@ body.menu-active .ori-footer {
   box-shadow: 0 1px 20px -6px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
   font-size: 0.75rem;
+}
+
+.sidebar-widget time{
+  line-height: 1.2rem;
+  color: #bcc3ce;
+  font-size: 80%;
+  font-weight: 400;
 }
 
 .sidebar-widget #searchform label {
