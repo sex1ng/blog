@@ -2124,22 +2124,9 @@ window.addEventListener("load", function() {
 });
 
 console.log(
-  "\n %c Otstar's Blog %c https://blog.ixk.me/ \n",
-  "color: #fff; background: #4285f4; padding:5px 0;",
-  "background: #87d1df; padding:5px 0;"
-);
-
-console.log(
-  "\n %c 🎉 Origami 折纸主题 | Version " +
+  "\n %c 🎉 Origami | Version " +
     document.querySelector('meta[name="origami-version"]').content +
     " | Otstar Lin %c https://blog.ixk.me/theme-origami.html \n",
   "color: #fff; background: #4285f4; padding:5px 0;",
   "background: #87d1df; padding:5px 0;"
-);
-
-console.log(
-  "%c ",
-  "background:url(" +
-    window.origamiConfig.themeBaseURL +
-    "/image/comment-1.png) no-repeat center;background-size:200px;padding-left:200px;padding-bottom:162px;overflow:hidden;border-radius:10px;margin:5px 0"
 );
