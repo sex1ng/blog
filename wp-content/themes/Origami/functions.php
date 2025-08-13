@@ -940,6 +940,41 @@ function change_avatar_url($avatar_url)
 }
 add_filter('get_avatar_url', 'change_avatar_url');
 
+// 修改默认头像
+function default_avatar($avatar_defaults)
+{
+    $home_url = home_url('/');
+    $avatar = "{$home_url}wp-content/uploads/2025/08/lovelive9.jpg";
+    $avatar_defaults[$avatar] = "LoveLive（自动生成）";
+    return $avatar_defaults;
+}
+add_filter('avatar_defaults', 'default_avatar');
+
+// 根据邮箱判断头像
+function local_random_avatar($avatar, $id_or_email, $size, $default, $alt)
+{
+    $get_img_dom = function ($alt, $avatar, $size) {
+        return "<img alt='{$alt}' src='{$avatar}' class='avatar avatar-{$size} photo comment-avatar' height='{$size}' width='{$size}' />";
+    };
+    switch (true) {
+        case in_array($default, array('mm', 'blank', '', 'identicon', 'wavatar', 'monsterid', 'retro', 'robohash')):
+            return $avatar;
+        case preg_match('/([1-9][0-9]{4,})@qq.com/', $id_or_email, $result):
+            $avatar = "https://q1.qlogo.cn/g?b=qq&nk=$result[1]&s=640";
+            return $get_img_dom($alt, $avatar, $size);
+        case preg_match('/(\w+)@\w+(\.\w+)/', $id_or_email, $result):
+            $upload_url = wp_upload_dir()['baseurl'];
+            $img_no = (ord(substr($result[1], -1, 1)) % 9) + 1;
+            $avatar = "$upload_url/2025/08/lovelive$img_no.jpg";
+            return $get_img_dom($alt, $avatar, $size);
+        default:
+            $upload_url = wp_upload_dir()['baseurl'];
+            $avatar = "$upload_url/2025/08/lovelive2.jpg";
+            return $get_img_dom($alt, $avatar, $size);
+    }
+}
+add_filter('get_avatar', 'local_random_avatar', 1, 5);
+
 require_once get_template_directory() . '/include/remove.php';
 require_once get_template_directory() . '/include/shortcode.php';
 require_once get_template_directory() . '/include/aes.class.php';
